@@ -1,0 +1,54 @@
+﻿@model Sistema_Nomina.Models.Datos
+
+@{
+    ViewData["Title"] = "Logueo";
+}
+
+<h1>Logueo</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Logueo" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cve_emp" class="control-label">Clave de Empleado</label>
+                <input asp-for="cve_emp" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label asp-for="contraseña" class="control-label">Contraseña</label>
+                <input asp-for="contraseña" type="password" class="form-control" required/>
+                <span class="input-group-btn">
+                    <button id="verPassword" class="btn btn-default" type="button">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="captcha">Captcha:  </label>
+                <input class="form-control" asp-for="captcha" required />
+            </div>
+            <div class="form-group">
+                Captcha<mark> <i> @ViewBag.Captcha </i ></mark>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@ViewBag.Captcha" name="captchaGenerado">
+            </div>
+            <div>
+                <a asp-action="OlvidarContraseña">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Inicio" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@if (ViewBag.Error != null && ViewBag.Error != "")
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}

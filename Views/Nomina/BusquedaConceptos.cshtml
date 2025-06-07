@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Sistema_Nomina.Models.Datos>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles16.css">
+</head>
+<H1>CONCEPTOS</H1>
+<hr />
+<form asp-controller="Nomina" asp-action="BusquedaConceptos" method="get">
+    <label name="nueva_area"><legend>Nuevo Concepto</legend></label>
+    <br />
+    <input name="nuevo_concepto" placeholder="Nombre del Concepto">
+    <input name="descripcion" placeholder="Descripción">
+    <input name="sueldoefecto" placeholder="Sueldo Efecto">
+    <button class="btn btn-outline-dark" type="submit" name="boton" value="1">Agregar</button>
+</form>
+<form asp-controller="Nomina" asp-action="BusquedaConceptos" method="post">
+    <fieldset>
+        <legend>Busqueda</legend>
+        <div>
+            <input name="nom_concepto" type="text" placeholder="Nombre del Concepto">
+            <button type="submit" class="btn btn-outline-dark">Buscar</button>
+        </div>
+    </fieldset>
+</form>
+
+@if (ViewBag.Error != null && ViewBag.Error != "")
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Success != null && ViewBag.Success != "")
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+
+@if (ViewBag.baja == true)
+{
+    <form asp-controller="Nomina" asp-action="BajasConceptos" method="post">
+        <div class="alert-warning" role="alert">
+            Selecciona los conceptos que deseas dar de baja <br />
+        </div>
+        <div align="right">
+            <button class="btn btn-outline-success" type="submit" name="aceptarBaja" value="true">Aceptar</button>
+            <a href="@Url.Action("BusquedaConceptos", "Nomina", new { baja = false })" class="btn btn-outline-danger">Cancelar</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Nombre del Concepto</th>
+                    <th>Descripción</th>
+                    <th>Sueldo Efecto</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="bajaConceptos" value="@item.id_concepto">
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.nom_concepto)</td>
+                        <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.sueldoefecto)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+}
+else
+{
+    <div align="right">
+        <form asp-controller="Nomina" asp-action="BusquedaConceptos" method="get">
+            <button class="btn btn-outline-primary" type="submit" name="baja" value="true" name="boton" value="2">Dar de baja</button>
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre del Concepto</th>
+                <th>Descripción</th>
+                <th>Sueldo Efecto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.nom_concepto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                    <td>@Html.DisplayFor(modelItem => item.sueldoefecto)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

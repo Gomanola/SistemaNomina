@@ -1,0 +1,63 @@
+﻿@model Sistema_Nomina.Models.Datos
+
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles16.css">
+</head>
+<h1>INICIO DE SESIÓN</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Logueo" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="cve_emp" class="control-label">Clave de Empleado</label>
+                <input asp-for="cve_emp" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="contraseña" class="control-label">Contraseña</label>
+                <input asp-for="contraseña" type="password" class="form-control" required />
+                <span class="input-group-btn">
+                    <button id="verPassword" class="btn btn-default" type="button">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                    </button>
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="captcha">Captcha:  </label>
+                <input class="form-control" asp-for="captcha" required />
+            </div>
+            <div class="form-group">
+                Captcha
+                <input placeholder="@ViewBag.Captcha" disabled>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@ViewBag.Captcha" name="captchaGenerado">
+            </div>
+            <div>
+                <a asp-action="OlvidarContraseña">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-primary">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--<div>
+    <a asp-action="Index">Back to List</a>
+</div>-->
+@if (ViewBag.Error != null && ViewBag.Error != "")
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}

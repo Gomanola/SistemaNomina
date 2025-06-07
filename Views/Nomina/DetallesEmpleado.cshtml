@@ -1,0 +1,118 @@
+﻿@model Sistema_Nomina.Models.Datos
+<form asp-action="BusquedaEmpleados">
+<div align="right">
+    <button class="btn btn-close"></button>
+</div>
+</form>
+
+<h4>Detalles de Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Nomina" asp-action="DetallesEmpleado" method="post">
+            <div class="alert-warning" role="alert">
+                En caso de hacer alguna modificación, asegurate de volver a poner tu contraseña <br />
+                En caso de ingresar una diferente, esa será la nueva contraseña
+            </div>
+            @if (ViewBag.Error != null && ViewBag.Error != "")
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.Error
+                </div>
+            }
+            @if (ViewBag.Success != null && ViewBag.Success != "")
+            {
+                <div class="alert alert-success" role="alert">
+                    @ViewBag.Success
+                </div>
+            }
+            <div class="form-group">
+                <input asp-for="cve_emp" class="form-control" hidden />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="nom_emp" class="control-label">Nombre</label>
+                <input asp-for="nom_emp" class="form-control" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="app_emp" class="control-label">Apellido Parterno</label>
+                <input asp-for="app_emp" class="form-control" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="apm_emp" class="control-label">Apellido Materno</label>
+                <input asp-for="apm_emp" class="form-control" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="contraseña" class="control-label">Contraseña</label>
+                <input asp-for="contraseña" value="@ViewBag.contraseña" class="form-control" type="password" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="fech_nac" class="control-label">Fecha de Nacimiento</label>
+                <input asp-for="fech_nac" class="form-control" type="date" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="id_clase" class="control-label">Clase</label>
+                <select asp-for="id_clase" class="form-control">
+                    @for (int i = 0; i < ViewBag.no_clases; i++)
+                    {
+                        if (ViewBag.clase[i] != null && ViewBag.clase[i] != "")
+                        {
+                            <option value="@i">@ViewBag.clase[i]</option>
+                        }
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="id_area" class="control-label">Area</label>
+                <select asp-for="id_area" class="form-control">
+                    @for (int j = 0; j < ViewBag.no_areas; j++)
+                    {
+                        if (ViewBag.area[j] != null && ViewBag.area[j] != "")
+                        {
+                        <option value="@j">@ViewBag.area[j]</option>
+                        }
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="habilitado" class="control-label">Usuario activo/inactivo</label>
+                <input asp-for="habilitado" type="checkbox">
+            </div>
+            @if (ViewBag.estado == false)
+            {
+                <div class="form-group">
+                    <label asp-for="estado" class="control-label">Contrato activo/inactivo</label>
+                    <input asp-for="estado" type="checkbox">
+                </div>
+                <div class="form-group">
+                    <label asp-for="motivo" class="control-label">Motivo de baja</label>
+                    <input asp-for="motivo" type="text" class="alert-secondary" disabled readonly>
+                </div>
+            }
+            @if (ViewBag.estado == true)
+            {
+                <div class="form-group">
+                    <label asp-for="estado" class="control-label">Contrato activo/inactivo</label>
+                    <input asp-for="estado" type="checkbox" disabled readonly>
+                </div>
+            }
+            <br />
+            <div>
+                <button class="btn btn-outline-success" type="submit">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

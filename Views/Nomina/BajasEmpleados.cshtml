@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Sistema_Nomina.Models.Datos>
+@{
+    ViewData["Title"] = "Empleados para Baja";
+}
+<form asp-controller="Nomina" asp-action="BusquedaEmpleados" method="get">
+    <div align="right">
+        <button type="submit" class="btn btn-secondary">Cancelar</button>
+    </div>
+</form>
+
+<form asp-controller="Nomina" asp-action="BajasEmpleados" method="post">
+
+<h1>Empleados seleccionados para dar de baja</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Clave</th>
+            <th>Nombre</th>
+            <th>Area</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.cve_emp)</td>
+                <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.nombre_area)</td>
+            </tr>
+            <input hidden name="bajaEmpleados" value="@item.cve_emp">
+        }
+    </tbody>
+</table>
+
+    <label name="motivo">Motivo de la baja:</label>
+    <input name="motivo" type="text" />
+    <br />
+    <button name="confirmarBaja" type="submit" class="btn btn-danger" value="1">Confirmar Baja</button>
+</form>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Sistema_Nomina.Models.Datos>
+@{
+    ViewData["Title"] = "Baja de Conceptos";
+}
+<form asp-controller="Nomina" asp-action="BusquedaConceptos" method="get">
+    <div align="right">
+        <button type="submit" class="btn btn-secondary">Cancelar</button>
+    </div>
+</form>
+
+<form asp-controller="Nomina" asp-action="BajasConceptos" method="post">
+
+    <h1>Conceptos seleccionados para dar de baja</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Concepto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.nom_concepto)</td>
+                </tr>
+                <input hidden name="bajaConceptos" value="@item.id_concepto">
+            }
+        </tbody>
+    </table>
+    <br />
+    <button name="confirmarBaja" type="submit" class="btn btn-danger" value="1">Confirmar Baja</button>
+</form>

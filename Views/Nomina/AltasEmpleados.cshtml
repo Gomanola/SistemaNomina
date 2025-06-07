@@ -1,0 +1,73 @@
+﻿@model Sistema_Nomina.Models.Datos
+
+<form asp-action="BusquedaEmpleados">
+    <div align="right">
+        <button class="btn btn-close"></button>
+    </div>
+</form>
+
+<h4>Registro de Empleado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Nomina" asp-action="AltasEmpleados" method="post">
+            @if (ViewBag.Error != null && ViewBag.Error != "")
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.Error
+                </div>
+            }
+            @if (ViewBag.Success != null && ViewBag.Success != "")
+            {
+                <div class="alert alert-success" role="alert">
+                    @ViewBag.Success
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="nom_emp" class="control-label">Nombre</label>
+                <input asp-for="nom_emp" class="form-control" required/>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="app_emp" class="control-label">Apellido Parterno</label>
+                <input asp-for="app_emp" class="form-control" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="apm_emp" class="control-label">Apellido Materno</label>
+                <input asp-for="apm_emp" class="form-control" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="contraseña" class="control-label">Contraseña</label>
+                <input asp-for="contraseña" class="form-control" type="password" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="fech_nac" class="control-label">Fecha de Nacimiento</label>
+                <input asp-for="fech_nac" class="form-control" type="date" required />
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="nombre_area" class="control-label">Area</label>
+                <select asp-for="id_area">
+                    @for (int j = 0; j < ViewBag.no_areas; j++)
+                    {
+                        if (ViewBag.area[j] != null && ViewBag.area[j] != "")
+                        {
+                            <option value="@j">@ViewBag.area[j]</option>
+                        }
+                    }
+                </select>
+            </div>
+            <br />
+            <div>
+                <button class="btn btn-outline-success" type="submit">Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

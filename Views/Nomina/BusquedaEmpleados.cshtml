@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Sistema_Nomina.Models.Datos>
+@{
+    ViewData["Title"] = "Listado";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D_D_A_E</title>
+    <link rel="stylesheet" href="/css/styles16.css">
+</head>
+<H1>EMPLEADOS</H1>
+<hr />
+<form asp-controller="Nomina" asp-action="BusquedaEmpleados" method="post">
+    <fieldset>
+        <legend>Busqueda</legend>
+        <div>
+           <b>Nombre del Empleado:</b></b> <input name="nombre" type="text" placeholder="Nombre del Empleado">
+        </div>
+        <br />
+        <div>
+            <label name="id_area"><b>Area:</b></label>
+            <select name="id_area">
+                @for (int i = 0; i < ViewBag.no_areas + 1; i++)
+                {
+                    if(ViewBag.area[i]!=null && ViewBag.area[i]!=""){
+                        <option value="@i">@ViewBag.area[i]</option>
+                    }
+                }
+            </select>
+        </div>
+        <br />
+        <div>
+            <label name="estado"><b>Contrato:</b></label>
+            <select name="estado">
+                <option value="0">Sin especificar</option>
+                <option value="1">Inactivo</option>
+                <option value="2">Activo</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <button type="submit" class="btn btn-outline-dark">Buscar</button>
+        </div>
+    </fieldset>
+</form>
+
+@if (ViewBag.Error != null && ViewBag.Error != "")
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Success != null && ViewBag.Success != "")
+{
+    <div class="alert alert-success" role="alert">
+        @ViewBag.Success
+    </div>
+}
+
+@if (ViewBag.baja == true)
+{
+    <form asp-controller="Nomina" asp-action="BajasEmpleados" method="post">
+        <br />
+        <div class="alert-warning" role="alert">
+            Selecciona los empleados que deseas dar de baja <br />
+            Al finalizar presiona en el botón ACEPTAR
+        </div>
+        <div align="right">
+            <button class="btn btn-outline-success" type="submit" name="aceptarBaja" value="true">Aceptar</button>
+            <a href="@Url.Action("BusquedaEmpleados", "Nomina", new { baja = false })" class="btn btn-outline-danger">Cancelar</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Clave</th>
+                    <th>Nombre</th>
+                    <th>Area</th>
+                    <th>Contrato</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="bajaEmpleados" value="@item.cve_emp">
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.cve_emp)</td>
+                        <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.nombre_area)</td>
+                        <td>@(item.estado ? "Activo" : "Inactivo")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+}
+else
+{
+    <div align="right">
+        <form asp-controller="Nomina" asp-action="AltasEmpleados" method="get">
+            <button class="btn btn-outline-primary" type="submit">Nuevo Empleado</button>
+        </form>
+        <form asp-controller="Nomina" asp-action="BusquedaEmpleados" method="get">
+            <button class="btn btn-outline-primary" type="submit" name="baja" value="true">Dar de baja</button>
+        </form>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Clave</th>
+                <th>Nombre</th>
+                <th>Area</th>
+                <th>Contrato</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.cve_emp)</td>
+                    <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.nombre_area)</td>
+                    <td>@(item.estado ? "Activo" : "Inactivo")</td>
+                    <td>
+                        <form asp-controller="Nomina" asp-action="DetallesEmpleado" method="get">
+                            <input type="hidden" name="cve_emp" value="@item.cve_emp" />
+                            <button class="btn btn-outline-secondary" type="submit">Detalles</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

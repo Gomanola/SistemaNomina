@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema de Nomina</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Sistema_Nomina.styles.css" asp-append-version="true" />
+    <style>
+            .nav-link.text-dark {
+            display: inline-block;
+            padding: 10px 20px; 
+            text-align: center; 
+            text-decoration: none;
+            background-color: #c4bcaa; 
+            color: #000; 
+            border: 1px solid transparent; 
+            border-radius: 50px; 
+            font-size: 100%;
+            transition: background-color 0.3s ease, color 0.3s ease; 
+            }
+
+            .nav-link.text-dark:hover {
+            background-color: #5a4b35; 
+            color: #fff;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid"style="background-color: #6d5e45;
+                                                display: flex;
+                                                justify-content: space-between;
+                                                align-items: center;
+                                                padding: 10px 30px;
+                                                border-bottom: 2px solid #000;
+                                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+                                                transition: background-color 0.3s; /* Transición de color de fondo */">
+            <img src="/images/logo np.png" alt="Logo" width="5%" height="5% style="margin-right: 10%;">                                    
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    @if (ViewBag.RH == 1)
+                    {
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="Inicio">Inicio</a>
+                            </li>
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="BusquedaEmpleados">Empleados</a>
+                            </li>
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="BusquedaAreas">Areas</a>
+                            </li>
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="BusquedaConceptos">Conceptos</a>
+                            </li>
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="Inicio">Nomina</a>
+                            </li>
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="Inicio">Consultar Nomina</a>
+                            </li>
+                            <li class="nav-item"style="margin-right: 1%;margin-left: 1%;">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Nomina" asp-action="Inicio">Administrar</a>
+                            </li>
+
+                        </ul>
+                        <div align="right">
+                            <a class="btn btn-outline-warning" asp-area="" asp-controller="Nomina" asp-action="Logueo">Cerrar Sesión</a>
+                        </div>
+                    }
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="text-muted" style="background-color: #c4bcaa; 
+                                    padding: 20px;
+                                    border-top: 2px solid #000;
+                                    display: flex;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    position: relative;
+                                    z-index: 1;
+                                    margin-top: auto; ">
+        <div class="footer-logo">
+            <img src="/images/logo np.png" alt="Logo" width="10%" height="10%">
+        </div>
+        <div class="container">
+            Copyright &copy; Todos Los Derechos Reservados NP Interprices S.A. DE C.V. México 2024 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
