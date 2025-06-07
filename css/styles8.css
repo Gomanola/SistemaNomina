@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Centra verticalmente todo el contenido */
+    align-items: center; /* Centra horizontalmente todo el contenido */
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fondo gris claro para toda la página */
+}
+
+.header {
+    background-color: #6d5e45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid #000;
+    width: 100%;
+}
+.header:hover {
+    background-color: #6d5e45a5; /* Cambio de color al pasar el ratón */
+}
+.header .logo img {
+    height: 60px;
+}
+
+.header .buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.header .buttons button {
+    padding: 15px 25px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header .buttons button:hover {
+    background-color: #5a4b35; 
+    color: #fff;
+}
+
+.content-container {
+    background-color: #ddd; /* Fondo gris para el contenedor */
+    padding: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px;
+    width: 80%; /* Ancho del contenedor */
+    max-width: 600px; /* Ancho máximo del contenedor */
+    text-align: center; /* Alineación central del contenido */
+}
+
+.main-content {
+    text-align: center; /* Alinea el contenido principal al centro */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+}
+
+.main-content h1, .main-content h5, .main-content h2 {
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.main-content .form-group {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    justify-content: center; /* Centra horizontalmente los botones */
+}
+
+.main-content .form-group button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 4px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-content .form-group button[type="submit"]:hover {
+    background-color: #5a4b35; 
+    color: #fff;
+}
+
+.footer {
+    background-color: #c4bcaa; 
+    padding: 20px;
+    border-top: 2px solid #000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.footer .footer-logo {
+    margin-right: auto;
+}
+
+.footer .footer-menu {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.footer .footer-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer .footer-menu-column a {
+    color: #040506;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.footer .footer-menu-column a:hover {
+    color: #ffffff; /* Color de texto blanco al pasar el mouse */
+}

@@ -1,0 +1,183 @@
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #6d5e45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid #000;
+}
+.header:hover {
+    background-color: #6d5e45a5; /* Cambio de color al pasar el ratón */
+}
+.header .logo img {
+    height: 60px;
+}
+
+.header .buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.header .buttons button {
+    padding: 15px 25px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.header .buttons button:hover {
+    background-color: #5a4b35; /* Color de fondo más oscuro al pasar el mouse */
+    color: #fff; /* Color de texto blanco al pasar el mouse */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.main-content h1 {
+    text-align: left;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.main-content .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.main-content label {
+    width: 150px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.main-content input[type="text"], 
+.main-content select {
+    flex: 1;
+    max-width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.main-content button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+.main-content button[type="submit"]:hover {
+    background-color: #5a4b35; /* Color de fondo más oscuro al pasar el mouse */
+    color: #fff; /* Color de texto blanco al pasar el mouse */
+}
+
+.row-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.row-bottom form {
+    margin: 0 20px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.row-bottom form h4, 
+.row-bottom form h5 {
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+.row-bottom form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.row-bottom form label {
+    width: 120px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.row-bottom form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.row-bottom form button[type="submit"]:hover {
+    background-color: #999; /* Color de fondo más oscuro al pasar el mouse */
+}
+
+.footer {
+    background-color: #c4bcaa; 
+    padding: 20px;
+    border-top: 2px solid #000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer .footer-logo {
+    margin-right: auto;
+}
+
+.footer .footer-menu {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.footer .footer-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer .footer-menu-column a {
+    color: #040506;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.footer .footer-menu-column a:hover {
+    color: #ffffff; /* Color de texto blanco al pasar el mouse */
+}

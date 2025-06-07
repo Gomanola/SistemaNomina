@@ -1,0 +1,221 @@
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fondo gris claro para toda la página */
+}
+
+
+/* Estilos para el encabezado */
+.header {
+    background-color: #6d5e45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+}
+/*.header:hover {
+    background-color: #6d5e45a5; /* Cambio de color al pasar el ratón 
+}*/
+.header .logo img {
+    height: 60px;
+}
+
+.header .buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.header .buttons button {
+    padding: 15px 25px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header .buttons button:hover {
+    background-color: #5a4b35; 
+    color: #fff;
+}
+
+/* Barra lateral */
+.sidebar {
+    width: 220px;
+    background-color: #e7e6e7;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #c4bcaa; 
+    color: #040202;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #5a4b35; 
+    color: #fff;
+}
+
+/* Contenido principal */
+.main-content {
+    margin-left: 30px;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    background-color: #fff; /* Fondo blanco para el contenido principal */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenido */
+    border-radius: 8px; /* Bordes redondeados para el contenido */
+}
+
+.main-content h1, .main-content h2, .main-content h3, .main-content h4 {
+    margin-left: 0;
+    text-align: center;
+}
+
+.main-content form .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.main-content form label {
+    display: inline-block;
+    width: 150px;
+    margin-right: 10px;
+}
+
+.main-content form input[type="text"], 
+.main-content form select {
+    flex: 1;
+    max-width: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+
+.row form button[type="submit"],
+.additional-buttons button {
+    padding: 10px 20px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.iniciar
+{
+    padding: 10px 20px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+    transition: background-color 0.3s ease, color 0.3s ease;}
+
+.main-content form button[type="submit"]:hover,
+.additional-buttons button:hover {
+    background-color: #5a4b35; 
+    color: #fff;
+}
+
+/* Pie de página */
+.footer {
+    background-color: #c4bcaa; 
+    padding: 20px;
+    border-top: 2px solid #000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    margin-top: auto; /* Fijar el pie de página en la parte inferior */
+}
+
+.footer .footer-logo {
+    margin-right: auto;
+}
+
+.footer .footer-menu {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.footer .footer-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer .footer-menu-column a {
+    color: #040506;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.footer .footer-menu-column a:hover {
+    color: #fbfbfa;
+}
+.btn.btn-outline-dark {
+    padding: 10px 20px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.btn.btn-outline-primary{
+    padding: 10px 20px;
+    background-color: #c4bcaa; 
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+.btn.btn-outline-primary:hover{
+    background-color: #5a4b35; 
+    color: #fff;
+}
+.btn.btn-outline-dark:hover {
+    background-color: #5a4b35; 
+    color: #fff;
+}
+.table tbody tr:nth-child(odd) {
+    background-color: #c4bcaa; /* Color oscuro */
+}
+
+
+/* Estilo para las filas pares */
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color claro */
+}

@@ -1,0 +1,206 @@
+/* Estilos para toda la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Estilos para la barra de encabezado */
+.header {
+    background-color: #6d5e45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-bottom: 2px solid #000;
+    position: relative;
+    z-index: 2;
+}
+.header:hover {
+    background-color: #6d5e45a5; /* Cambio de color al pasar el ratón */
+}
+.header .logo img {
+    height: 60px;
+}
+
+.header .buttons {
+    display: flex;
+    gap: 25px;
+}
+
+.header .buttons button {
+    padding: 15px 25px;
+    background-color: #c4bcaa;
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header .buttons button:hover {
+    background-color: #5a4b35; /* Cambio de color al pasar el cursor */
+    color: #fff; /* Cambio de color del texto al pasar el cursor */
+}
+
+/* Estilos para la barra lateral */
+.sidebar {
+    width: 220px;
+    background-color: #e7e6e7;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #c4bcaa;
+    color: #040202;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #5a4b35; /* Cambio de color al pasar el cursor */
+    color: #fff; /* Cambio de color del texto al pasar el cursor */
+}
+
+/* Estilos para el contenido principal */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 90px;
+    margin-top: 30px;
+    padding: 20px;
+    flex-grow: 1;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+.main-content h4,
+.main-content h5 {
+    margin-left: 0;
+    margin-bottom: 5px;
+}
+
+.main-content .row-top,
+.main-content .row-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.main-content .row-top form,
+.main-content .row-bottom form {
+    width: calc(50% - 20px);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-content .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.main-content form label {
+    width: 120px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.main-content form input[type="text"],
+.main-content form select {
+    flex: 1;
+    max-width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.main-content form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #ccc;
+    color: #000;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-content form button[type="submit"]:hover {
+    background-color: #bbb; /* Cambio de color al pasar el cursor */
+    color: #fff; /* Cambio de color del texto al pasar el cursor */
+}
+
+.main-content form button[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #c4bcaa;
+    color: #000;
+    border: 2px solid #c4bcaa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-content form button[type="button"]:hover {
+    background-color: #5a4b35; /* Cambio de color al pasar el cursor */
+    color: #fff; /* Cambio de color del texto al pasar el cursor */
+}
+
+/* Estilos para el pie de página */
+.footer {
+    background-color: #c4bcaa;
+    padding: 20px;
+    border-top: 2px solid #000;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer .footer-logo {
+    margin-right: auto;
+}
+
+.footer .footer-menu {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+}
+
+.footer .footer-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer .footer-menu-column a {
+    color: #040506;
+    text-decoration: none;
+    padding: 5px 0;
+}
+
+.footer .footer-menu-column a:hover {
+    color: #fbfbfa;
+}
